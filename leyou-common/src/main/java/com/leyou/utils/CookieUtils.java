@@ -192,7 +192,7 @@ public final class CookieUtils {
 		String domainName = null;
 
 		String serverName = request.getRequestURL().toString();
-		if (serverName == null || serverName.equals("")) {
+		if (serverName == null || "".equals(serverName)) {
 			domainName = "";
 		} else {
 			serverName = serverName.toLowerCase();
