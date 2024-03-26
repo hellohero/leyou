@@ -25,7 +25,7 @@ public class NumberUtils {
      * @return
      */
     public static boolean isDigit(String str){
-        if(str == null || str.trim().equals("")){
+        if(str == null || "".equals(str.trim())){
             return false;
         }
         return str.matches("^\\d+$");
