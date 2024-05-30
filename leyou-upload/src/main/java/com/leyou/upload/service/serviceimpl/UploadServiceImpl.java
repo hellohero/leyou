@@ -3,6 +3,7 @@ package com.leyou.upload.service.serviceimpl;
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import com.leyou.upload.service.UploadService;
+import io.github.pixee.security.Filenames;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +65,7 @@ public class UploadServiceImpl implements UploadService {
 //            file.transferTo(new File(dir, Objects.requireNonNull(file.getOriginalFilename())));
 
             StorePath storePath = this.storageClient.uploadFile(
-                  file.getInputStream(), file.getSize(), getExtension(file.getOriginalFilename()), null);
+                  file.getInputStream(), file.getSize(), getExtension(Filenames.toSimpleFileName(file.getOriginalFilename())), null);
 
             //String url = "http://image.leyou.com/upload/"+file.getOriginalFilename();
             String url = "http://image.leyou.com/"+storePath.getFullPath();
