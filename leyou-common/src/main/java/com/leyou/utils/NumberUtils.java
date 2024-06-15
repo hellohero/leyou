@@ -2,6 +2,7 @@ package com.leyou.utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -69,7 +70,7 @@ public class NumberUtils {
     public static String generateCode(int len){
         len = Math.min(len, 8);
         int min = Double.valueOf(Math.pow(10, len - 1)).intValue();
-        int num = new Random().nextInt(Double.valueOf(Math.pow(10, len + 1)).intValue() - 1) + min;
+        int num = new SecureRandom().nextInt(Double.valueOf(Math.pow(10, len + 1)).intValue() - 1) + min;
         return String.valueOf(num).substring(0,len);
     }
 }
